@@ -6,7 +6,7 @@ This is a utility library for providing functions related to the
 If you do support its file name convention, you might find here some
 valuable tools:
 
-: (<ISO date/time stamp>)? <descriptive file name>( -- <list of tags separated by spaces>)?.<file extension>
+: (<ISO date/time stamp>)?(?<descriptive file name>)?( -- <list of tags separated by spaces>)?.<file extension>
 
 Examples:
 
