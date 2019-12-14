@@ -1,0 +1,57 @@
+* filetagslib
+
+This is a utility library for providing functions related to the
+[[https://github.com/novoidfiletags/filetags][filetags method]] which is also described [[https://karl-voit.at/managing-digital-photographs/][on this blog entry]].
+
+If you do support its file name convention, you might find here some
+valuable tools:
+
+: (<ISO date/time stamp>)? <descriptive file name>( -- <list of tags separated by spaces>)?.<file extension>
+
+Examples:
+
+: 2019-12-14T11.28.44 Dinner for one -- fun silvester anniversary.mpeg
+: 2019-12-14 Tax returns.pdf
+: 2019-12-14T15.32 Book for mum 23€ -- bill books.png
+: 2019-12-13T10.36.46.jpg
+: 2019-10-30T22.19.32 Nata de Coco -- food acquisition.jpg
+
+** Installation
+
+This tool needs [[http://www.python.org/downloads/][Python 3 to be installed]].
+
+You can install via [[https://packaging.python.org/tutorials/installing-packages/][pip]]:
+
+: pip3 install filetagslib
+
+If you are using a project that is referring to filetagslib, this
+library usually gets added to the =requirements.txt= file of that
+project and installed when you do invoke:
+
+: pip3 install -r requirements.txt
+
+** Changelog
+
+This changelog does not list all commits/changes, just the substantial
+ones.
+
+- 2019-12-14: initial version
+
+** How to Thank Me
+
+I'm glad you like my tools. If you want to support me:
+
+- Send old-fashioned *postcard* per snailmail - I love personal feedback!
+  - see [[http://tinyurl.com/j6w8hyo][my address]]
+- Send feature wishes or improvements as an issue on GitHub
+- Create issues on GitHub for bugs
+- Contribute merge requests for bug fixes
+- Contribute unit tests
+- Check out my other cool [[https://github.com/novoid][projects on GitHub]]
+
+* Local Variables                                                  :noexport:
+# Local Variables:
+# mode: auto-fill
+# mode: flyspell
+# eval: (ispell-change-dictionary "en_US")
+# End:
