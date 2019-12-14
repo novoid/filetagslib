@@ -7,7 +7,7 @@ here = path.abspath(path.dirname(__file__))
 
 setup(
     name="filetagslib",
-    version="2019.12.13.1",
+    version="2019.12.14.1",
     description="Utility library for providing functions related to the filetags file name convention: https://github.com/novoid/filetags",
     license='GPLv3',
     author="Karl Voit",
