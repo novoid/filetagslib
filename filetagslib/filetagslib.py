@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; mode: python; -*-
-# Time-stamp: <2019-12-13 17:00:43 vk>
+# Time-stamp: <2019-12-14 11:41:58 vk>
 
 import logging
 import re
 
 
-class RegEx():
+class filenameconvention():
     """
-    Utility library for regular expressions related to filetags.
+    Utility library related to filenameconvention of filetags.
     """
 
     BETWEEN_TAG_SEPARATOR = ' '

@@ -1,1 +1,1 @@
-from filetagslib.filetagslib import RegEx
+from filetagslib.filetagslib import filenameconvention

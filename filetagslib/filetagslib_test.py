@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Time-stamp: <2019-12-13 17:11:35 vk>
+# Time-stamp: <2019-12-14 11:43:04 vk>
 
 import unittest
 import re
-from filetagslib.filetagslib import RegEx
+from filetagslib.filetagslib import filenameconvention
 
 
 class TestOrgFormat(unittest.TestCase):
@@ -15,7 +15,7 @@ class TestOrgFormat(unittest.TestCase):
     def test_filename_pattern_regex_with_timestamp_seconds_description_tags(self):
 
         self.assertEqual(
-            re.match(RegEx.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.23 foo bar -- baz1 baz2 baz3.txt').groups(),
+            re.match(filenameconvention.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.23 foo bar -- baz1 baz2 baz3.txt').groups(),
             ('2019-12-13T18.01.23',
              '2019-12-13',
              '2019',
@@ -36,7 +36,7 @@ class TestOrgFormat(unittest.TestCase):
         )
 
         # the very same string can be addressed also by named groups:
-        components = re.match(RegEx.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.23 foo bar -- baz1 baz2 baz3.txt')
+        components = re.match(filenameconvention.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.23 foo bar -- baz1 baz2 baz3.txt')
         self.assertEqual(components.group('datestamp'), '2019-12-13')
         self.assertEqual(components.group('datetimestamp'), '2019-12-13T18.01.23')
         self.assertEqual(components.group('year'), '2019')
@@ -52,7 +52,7 @@ class TestOrgFormat(unittest.TestCase):
 
     def test_filename_pattern_regex_with_timestamp_noseconds_description_tags(self):
 
-        components = re.match(RegEx.FILENAME_PATTERN_REGEX, '2019-12-13T18.01 foo bar -- baz1 baz2 baz3.txt')
+        components = re.match(filenameconvention.FILENAME_PATTERN_REGEX, '2019-12-13T18.01 foo bar -- baz1 baz2 baz3.txt')
         self.assertEqual(components.group('datestamp'), '2019-12-13')
         self.assertEqual(components.group('datetimestamp'), '2019-12-13T18.01')
         self.assertEqual(components.group('year'), '2019')
@@ -68,7 +68,7 @@ class TestOrgFormat(unittest.TestCase):
 
     def test_filename_pattern_regex_with_datestamp_notimestamp_description_tags(self):
 
-        components = re.match(RegEx.FILENAME_PATTERN_REGEX, '2019-12-13 foo bar -- baz1 baz2 baz3.txt')
+        components = re.match(filenameconvention.FILENAME_PATTERN_REGEX, '2019-12-13 foo bar -- baz1 baz2 baz3.txt')
         self.assertEqual(components.group('datestamp'), '2019-12-13')
         self.assertEqual(components.group('datetimestamp'), '2019-12-13')
         self.assertEqual(components.group('year'), '2019')
@@ -84,7 +84,7 @@ class TestOrgFormat(unittest.TestCase):
 
     def test_filename_pattern_regex_with_timestamp_seconds_nodescription_tags(self):
 
-        components = re.match(RegEx.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.23 -- baz1 baz2 baz3.txt')
+        components = re.match(filenameconvention.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.23 -- baz1 baz2 baz3.txt')
         self.assertEqual(components.group('datestamp'), '2019-12-13')
         self.assertEqual(components.group('datetimestamp'), '2019-12-13T18.01.23')
         self.assertEqual(components.group('year'), '2019')
@@ -100,7 +100,7 @@ class TestOrgFormat(unittest.TestCase):
 
     def test_filename_pattern_regex_with_timestamp_seconds_description_notags(self):
 
-        components = re.match(RegEx.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.23 foo bar.txt')
+        components = re.match(filenameconvention.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.23 foo bar.txt')
         self.assertEqual(components.group('datestamp'), '2019-12-13')
         self.assertEqual(components.group('datetimestamp'), '2019-12-13T18.01.23')
         self.assertEqual(components.group('year'), '2019')
@@ -116,7 +116,7 @@ class TestOrgFormat(unittest.TestCase):
 
     def test_filename_pattern_regex_with_timestamp_seconds_nodescription_notags(self):
 
-        components = re.match(RegEx.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.23.txt')
+        components = re.match(filenameconvention.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.23.txt')
         self.assertEqual(components.group('datestamp'), '2019-12-13')
         self.assertEqual(components.group('datetimestamp'), '2019-12-13T18.01.23')
         self.assertEqual(components.group('year'), '2019')
@@ -132,7 +132,7 @@ class TestOrgFormat(unittest.TestCase):
 
     def test_filename_pattern_regex_with_timestamp_noseconds_nodescription_notags(self):
 
-        components = re.match(RegEx.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.txt')
+        components = re.match(filenameconvention.FILENAME_PATTERN_REGEX, '2019-12-13T18.01.txt')
         self.assertEqual(components.group('datestamp'), '2019-12-13')
         self.assertEqual(components.group('datetimestamp'), '2019-12-13T18.01')
         self.assertEqual(components.group('year'), '2019')
@@ -148,7 +148,7 @@ class TestOrgFormat(unittest.TestCase):
 
     def test_filename_pattern_regex_with_datestamp_notimestamp_noseconds_nodescription_notags(self):
 
-        components = re.match(RegEx.FILENAME_PATTERN_REGEX, '2019-12-13.txt')
+        components = re.match(filenameconvention.FILENAME_PATTERN_REGEX, '2019-12-13.txt')
         self.assertEqual(components.group('datestamp'), '2019-12-13')
         self.assertEqual(components.group('datetimestamp'), '2019-12-13')
         self.assertEqual(components.group('year'), '2019')
