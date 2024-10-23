@@ -16,7 +16,7 @@ setup(
     download_url="https://github.com/novoid/filetagslib/zipball/master",
     keywords=["tagging", "tags", "file managing", "file management", "files", "tagtrees", "tagstore", "tag-based navigation", "tag-based filter"],
     packages=find_packages(),
-    #install_requires=["pyreadline", "clint"],  # add dependencies if they are included in the code
+    #install_requires=["pyreadline3", "clint"],  # add dependencies if they are included in the code
     classifiers=[
         "Programming Language :: Python :: 3 :: Only",
         "Development Status :: 5 - Production/Stable",
